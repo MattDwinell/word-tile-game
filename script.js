@@ -1,4 +1,3 @@
-
 $(function () {
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -19,14 +18,11 @@ $(function () {
 
 
     let input = document.getElementById('input');
-    let input2 = document.getElementById('input2');
     let image = document.getElementById('testimg');
     input.addEventListener('change', function () {
-        //   console.log('this changed');
+
 
         if (input.files && input.files[0]) {
-            // console.log('file uploaded');
-
             var reader = new FileReader();
 
             reader.readAsDataURL(input.files[0]);
@@ -45,6 +41,7 @@ $(function () {
             }
         }
     })
+
     function makeTwentyFive(src) {
         console.log('making 25');
         let j = 0;
@@ -52,10 +49,11 @@ $(function () {
             let xShift = (750 - (150 * (i % 5))).toString();
             let yShift = (750 - (150 * j)).toString();
             if (i === 4 || i === 9 || i === 14 || i === 19) { j++ };
-            let tile = $("<div class='tile5'>").css("background-image", "url(" + src + ") ").css("background-position", xShift + 'px' + ' ' + yShift + 'px').text(i).css('color', 'white').attr('id', 'tile' + i);
+            let tile = $("<div class='tile5'>").css("background-image", "url(" + src + ") ").css("background-position", xShift + 'px' + ' ' + yShift + 'px').html('&nbsp').css('color', 'white').attr('id', 'tile' + i);
             if (i === 20) { tile.css("background-image", "none").attr("class", "tile5 empty"); }
             $("#tile-frame").append(tile);
         }
+
         let inversionCount = 1;
         while (inversionCount % 2 != 0) {
             console.log(inversionCount);
@@ -98,12 +96,16 @@ $(function () {
             let yShift = (750 - (250 * j)).toString();
             // console.log(xShift, yShift);
             if (i === 2 || i === 5) { j++ };
-            let tile = $("<div class='tile9'>").css("background-image", "url(" + src + ") ").css("background-position", xShift + 'px' + ' ' + yShift + 'px').text(i).css('color', 'white').attr('id', 'tile' + i);
+            let tile = $("<div class='tile9'>").css("background-image", "url(" + src + ") ").css("background-position", xShift + 'px' + ' ' + yShift + 'px').html('&nbsp').css('color', 'white').attr('id', 'tile' + i);
             if (i == 6 && j === 2) {
                 tile.css("background-image", "none").attr("class", "tile9 empty");
             }
             goalTiles.push(tile);
             $("#tile-frame").append(tile);
+
+        }
+
+
         let inversionCount = 1;
         while (inversionCount % 2 != 0) {
             console.log(inversionCount);
@@ -306,8 +308,12 @@ $(function () {
         $("#img-frame").empty();
         currentNine = [];
         goalNine = [];
-        // $("#input2").css("display", "inline-block");
-        // $("#input").css("display", "none");
+        $('#game-win').css('display', 'inline-block');
+        $('.close-btn').on('click', ()=>{
+            document.location = document.location;
+        })
+
     }
 
 })
+
