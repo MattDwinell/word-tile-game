@@ -37,6 +37,8 @@ $(function () {
                     let tileSize = $('input[name="size"]:checked').val();
                     if(tileSize == '3') makeNine(image.src);
                     else if(tileSize == '5') makeTwentyFive(image.src);
+
+                    input.style.visibility = 'hidden';
                    
                     
                 }
@@ -66,7 +68,7 @@ $(function () {
             if (i === 20) { tile.css("background-image", "none").attr("class", "tile5 empty"); }
             $("#tile-frame").append(tile);
         }
-        shuffle(goalFive).map((item) => currentFive.push(item));
+       /* shuffle(goalFive).map((item) => currentFive.push(item));
         goalFive.sort((a, b) => a - b);
         console.log(currentFive);
         let inversionCount = 0;
@@ -76,16 +78,18 @@ $(function () {
                     inversionCount++;
                 }
             }
-        }
+        }*/
+        let inversionCount = 1;
         while (inversionCount % 2 != 0) {
             console.log(inversionCount);
             inversionCount = 0;
             currentFive = [];
             shuffle(goalFive).map((item) => currentFive.push(item));
+            console.log(currentFive);
             goalFive.sort((a, b) => a - b);
-            for (let i = o; i < currentFive.length; i++) {
+            for (let i = 0; i < currentFive.length; i++) {
                 for (let j = i + 1; j < currentFive.length; j++) {
-                    if (currentFive[i] > currentNine[j]) {
+                    if (currentFive[i] > currentFive[j] && currentFive[i] != 20 && currentFive[j] != 20) {
                         inversionCount++;
                     }
                 }
@@ -121,14 +125,15 @@ $(function () {
             if (i == 6 && j === 2) {
                 tile.css("background-image", "none").attr("class", "tile9 empty");
             }
-            // let img = $("<img class='testimg'>").attr("src", src);
-            // tile.append(img);
             goalTiles.push(tile);
             $("#tile-frame").append(tile);
-            let inversionCount = 0;
+          /*  let inversionCount = 0;
+            console.log(currentNine);
+            console.log(currentNine.length);
             for (let i = 0; i < currentNine.length - 1; i++) {
                 for (let j = i + 1; j < currentNine.length; j++) {
                     if (currentNine[i] > currentNine[j]) {
+                        console.log('inversion: ' + currentNine[i] + ':' + currentNine[j]);
                         inversionCount++;
                     }
                 }
@@ -149,11 +154,13 @@ $(function () {
                 }
 
             }
+           
+           
             console.log(inversionCount);
-
+ */
         }
 
-        shuffle(goalNine).map((item) => currentNine.push(item));
+     /*   shuffle(goalNine).map((item) => currentNine.push(item));
         // console.log(currentNine, goalNine);
         goalNine.sort((a, b) => a - b);
         console.log(currentNine);
@@ -164,17 +171,23 @@ $(function () {
                     inversionCount++;
                 }
             }
-        }
+        }*/
+        let inversionCount = 1;
         while (inversionCount % 2 != 0) {
             console.log(inversionCount);
             inversionCount = 0;
             currentNine = [];
             shuffle(goalNine).map((item) => currentNine.push(item));
+            goalNine = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            console.log(goalNine);
+            console.log(currentNine);
 
             goalNine.sort((a, b) => a - b);
+            console.log(goalNine);
             for (let i = 0; i < currentNine.length - 1; i++) {
                 for (let j = i + 1; j < currentNine.length; j++) {
-                    if (currentNine[i] > currentNine[j]) {
+                    if (currentNine[i] > currentNine[j] && currentNine[i] != 6 && currentNine[j] != 6) {
+                        console.log('inversion: ' + currentNine[i] + ':' + currentNine[j]);
                         inversionCount++;
                     }
                 }
