@@ -34,23 +34,27 @@ $(function () {
                 //    console.log(reader.result);
                 image.src = reader.result;
                 image.onload = function () {
-                    makeNine(image.src);
+                    let tileSize = $('input[name="size"]:checked').val();
+                    if(tileSize == '3') makeNine(image.src);
+                    else if(tileSize == '5') makeTwentyFive(image.src);
+                   
+                    
                 }
             }
         }
     })
-    input2.addEventListener('change', function () {
-        if (input2.files && input2.files[0] && gameNineWon) {
-            let reader = new FileReader();
-            reader.readAsDataURL(input2.files[0]);
-            reader.onload = function () {
-                image.src = reader.result;
-                image.onload = function () {
-                    makeTwentyFive(image.src);
-                }
-            }
-        }
-    })
+    // input2.addEventListener('change', function () {
+    //     if (input2.files && input2.files[0] && gameNineWon) {
+    //         let reader = new FileReader();
+    //         reader.readAsDataURL(input2.files[0]);
+    //         reader.onload = function () {
+    //             image.src = reader.result;
+    //             image.onload = function () {
+    //                 makeTwentyFive(image.src);
+    //             }
+    //         }
+    //     }
+    // })
     function makeTwentyFive(src) {
         console.log('making 25');
         let j = 0;

@@ -9,17 +9,27 @@
     <link rel="stylesheet" href="./style.css" type="text/css">
 </head>
 <body>
-
-    <input id='input' type='file' value ='upload image file'>
-    <input id='input2' type='file' value='upload second image file'>
-    <div class="column-wrapper left">
-        <img src="./columns3.png"/>
+    <div class="header-bar">
+        <h3> Turn your Picture Into A Sliding Tile Game!</h3>
+        <p>Simply choose the complexity of the puzzle and then upload your picture below to play! </p> 
+        <input name = 'size' label = '3x3' type = 'radio' value = '3'>
+        <label for = '3'>three by three</label>
+        <input name = 'size' label = '5x5' type = 'radio' value = '5' checked='true' >
+        <label for = '5'>five by five</label>
+        <input id='input' type='file' value ='upload image file'>
+        <input id='input2' type='file' value='upload second image file'>
     </div>
+
+
+
+    <!-- <div class="column-wrapper left">
+        <img src="./columns3.png"/>
+    </div> -->
    <div id='img-frame'>   <img id='testimg' src='https://ih0.redbubble.net/image.760636107.4598/carp,small,square_product,1000x1000.u1.jpg'>
     </div>
-    <div class="column-wrapper right">
+    <!-- <div class="column-wrapper right">
         <img src="./columns3.png"/>
-    </div>
+    </div> -->
     <div id='tile-frame'>
         
     </div>
