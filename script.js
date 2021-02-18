@@ -45,18 +45,6 @@ $(function () {
             }
         }
     })
-    // input2.addEventListener('change', function () {
-    //     if (input2.files && input2.files[0] && gameNineWon) {
-    //         let reader = new FileReader();
-    //         reader.readAsDataURL(input2.files[0]);
-    //         reader.onload = function () {
-    //             image.src = reader.result;
-    //             image.onload = function () {
-    //                 makeTwentyFive(image.src);
-    //             }
-    //         }
-    //     }
-    // })
     function makeTwentyFive(src) {
         console.log('making 25');
         let j = 0;
@@ -68,17 +56,6 @@ $(function () {
             if (i === 20) { tile.css("background-image", "none").attr("class", "tile5 empty"); }
             $("#tile-frame").append(tile);
         }
-       /* shuffle(goalFive).map((item) => currentFive.push(item));
-        goalFive.sort((a, b) => a - b);
-        console.log(currentFive);
-        let inversionCount = 0;
-        for (let i = 0; i < currentFive.length; i++) {
-            for (let j = i + 1; j < currentFive.length; j++) {
-                if (currentFive[i] > currentNine[j]) {
-                    inversionCount++;
-                }
-            }
-        }*/
         let inversionCount = 1;
         while (inversionCount % 2 != 0) {
             console.log(inversionCount);
@@ -127,51 +104,6 @@ $(function () {
             }
             goalTiles.push(tile);
             $("#tile-frame").append(tile);
-          /*  let inversionCount = 0;
-            console.log(currentNine);
-            console.log(currentNine.length);
-            for (let i = 0; i < currentNine.length - 1; i++) {
-                for (let j = i + 1; j < currentNine.length; j++) {
-                    if (currentNine[i] > currentNine[j]) {
-                        console.log('inversion: ' + currentNine[i] + ':' + currentNine[j]);
-                        inversionCount++;
-                    }
-                }
-            }
-            while (inversionCount % 2 != 0) {
-                console.log(inversionCount);
-                inversionCount = 0;
-                currentNine = [];
-                shuffle(goalNine).map((item) => currentNine.push(item));
-
-                goalNine.sort((a, b) => a - b);
-                for (let i = 0; i < currentNine.length - 1; i++) {
-                    for (let j = i + 1; j < currentNine.length; j++) {
-                        if (currentNine[i] > currentNine[j]) {
-                            inversionCount++;
-                        }
-                    }
-                }
-
-            }
-           
-           
-            console.log(inversionCount);
- */
-        }
-
-     /*   shuffle(goalNine).map((item) => currentNine.push(item));
-        // console.log(currentNine, goalNine);
-        goalNine.sort((a, b) => a - b);
-        console.log(currentNine);
-        let inversionCount = 0;
-        for (let i = 0; i < currentNine.length - 1; i++) {
-            for (let j = i + 1; j < currentNine.length; j++) {
-                if (currentNine[i] > currentNine[j]) {
-                    inversionCount++;
-                }
-            }
-        }*/
         let inversionCount = 1;
         while (inversionCount % 2 != 0) {
             console.log(inversionCount);
@@ -374,8 +306,8 @@ $(function () {
         $("#img-frame").empty();
         currentNine = [];
         goalNine = [];
-        $("#input2").css("display", "inline-block");
-        $("#input").css("display", "none");
+        // $("#input2").css("display", "inline-block");
+        // $("#input").css("display", "none");
     }
 
 })
